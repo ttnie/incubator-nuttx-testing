@@ -44,9 +44,7 @@ function add_path {
 function python-tools {
   # Python User Env
   PIP_USER=yes
-  export PIP_USER
   PYTHONUSERBASE=$prebuilt/pylocal
-  export PYTHONUSERBASE
   add_path $PYTHONUSERBASE/bin
 }
 
