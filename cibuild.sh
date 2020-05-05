@@ -202,7 +202,7 @@ function xtensa-esp32-gcc-toolchain {
     esac
   fi
   xtensa-esp32-elf-gcc --version
-  pip3 install esptool
+  pip install esptool
 }
 
 function c-cache {
