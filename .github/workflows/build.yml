@@ -14,6 +14,7 @@ name: Build
 
 on:
   pull_request:
+  push:
 
 jobs:
   Linux:
@@ -24,7 +25,8 @@ jobs:
 
     strategy:
       matrix:
-        boards: [arm-01, arm-02, arm-03, arm-04, arm-05, arm-06, arm-07, arm-08, arm-09, arm-10, arm-11, arm-12, arm-13, avr-mips-riscv-x86-xtensa, sim]
+        #boards: [arm-01, arm-02, arm-03, arm-04, arm-05, arm-06, arm-07, arm-08, arm-09, arm-10, arm-11, arm-12, arm-13, avr-mips-riscv-x86-xtensa, sim]
+        boards: [sim]
     steps:
     - name: Checkout nuttx repo
       uses: actions/checkout@v2
@@ -82,6 +84,7 @@ jobs:
           export CCACHE_DIR=`pwd`/ccache
           cd testing
           ./cibuild.sh -c -x testlist/${{matrix.boards}}.dat
+          ./cirun.sh -c -x testlist/${{matrix.boards}}.dat
           ccache -s
           ccache -M 400M
           ccache -c
