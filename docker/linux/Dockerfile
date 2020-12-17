@@ -116,6 +116,7 @@ RUN apt-get update -qq && DEBIAN_FRONTEND="noninteractive" apt-get install -y -q
   python3-pexpect \
   make \
   cmake \
+  gawk \
   ninja-build \
   ccache \
   libffi-dev \
